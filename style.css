@@ -332,7 +332,7 @@ body {
 /* Mobile refinement */
 @media (max-width: 480px) {
   #dateInput {
-    padding: 12px 14px;
+    padding: 16px 14px;
     border-radius: 12px;
   }
 }
