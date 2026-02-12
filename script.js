@@ -83,12 +83,11 @@ const dateFlow = [
     type: "choice",
     question: "What should we do after? 🎡",
     options: [
-      { name: "Watch Anime", img: "./assets/anime.jpg" },
-      { name: "DIY", img: "./assets/diy.png" },
+      { name: "Watch Anime", img: "./assets/anime.jpg" },      
       { name: "Play MLBB", img: "./assets/MLBB.jpg" },
       { name: "Feed Squirrels", img: "./assets/squirrel.png" },
       { name: "Study Together", img: "./assets/study.jpeg" },
-      { name: "Cook a New Recipe", img: "https://plus.unsplash.com/premium_photo-1661520870657-b55062321239?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNvb2tpbmd8ZW58MHx8MHx8fDA%3D" }
+      { name: "DIY", img: "./assets/diy.png" }
     ]
   }
 ];
