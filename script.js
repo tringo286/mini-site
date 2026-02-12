@@ -119,21 +119,40 @@ function showStep() {
   if (step.type === "date") {
     questionCard.innerHTML = `
       <h1 class="title">${step.question}</h1>
-      <input type="date" id="dateInput" style="margin:20px 0;padding:12px;width:100%;border-radius:12px;border:1px solid #ddd;font-size:16px;"/>
+
+      <div class="date-wrapper">
+        <input type="date" id="dateInput" required />
+        <span class="date-placeholder">Pick a cute day 💌</span>
+      </div>
+
       <div class="buttons">
         <button class="btn btn-yes" id="nextBtn">Next →</button>
       </div>
     `;
 
+    const dateInput = document.getElementById("dateInput");
+    const placeholder = document.querySelector(".date-placeholder");
+
     const today = new Date().toISOString().split("T")[0];
-    document.getElementById("dateInput").setAttribute("min", today);
+    dateInput.setAttribute("min", today);
+
+    // Hide fake placeholder when date selected
+    dateInput.addEventListener("change", () => {
+      if (dateInput.value) {
+        placeholder.style.opacity = "0";
+      } else {
+        placeholder.style.opacity = "1";
+      }
+    });
 
     document.getElementById("nextBtn").addEventListener("click", () => {
-      const value = document.getElementById("dateInput").value;
+      const value = dateInput.value;
+
       if (!value) {
         alert("You have to pick a date 😌");
         return;
       }
+
       answers[currentStep] = value;
       currentStep++;
       showStep();

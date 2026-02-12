@@ -271,17 +271,16 @@ body {
   box-shadow: 0 7px 16px rgba(255, 79, 132, 0.4);
 }
 
-/* ===== Date Picker (Clean Version) ===== */
+/* ===== Romantic Date Picker ===== */
 
 .date-wrapper {
   position: relative;
   width: 100%;
-  margin-top: 16px;
+  margin: 20px 0;
 }
 
 #dateInput {
   width: 100%;
-  display: block;
   box-sizing: border-box;
   padding: 14px 16px;
   font-size: 16px; /* prevents iOS zoom */
@@ -301,16 +300,15 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 79, 132, 0.15);
 }
 
-/* Optional soft calendar emoji */
-.date-wrapper::after {
-  content: "📅";
+.date-placeholder {
   position: absolute;
-  right: 14px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
+  color: rgba(68, 33, 63, 0.5);
   pointer-events: none;
-  font-size: 1.1rem;
-  opacity: 0.6;
+  font-size: 16px;
+  transition: opacity 0.2s ease;
 }
 
 /* Mobile refinement */
