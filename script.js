@@ -54,7 +54,7 @@ function activateNoButtonFun() {
 const dateFlow = [
   {
     type: "date",
-    question: "When are you free for our virtual date? 📅"
+    question: "When would you be free for our virtual hangout? 📅"
   },
   {
     type: "choice",
@@ -123,7 +123,6 @@ function showStep() {
       <div class="date-wrapper">
         <input type="date" id="dateInput" required />
       </div>
-
       <div class="buttons">
         <button class="btn btn-yes" id="nextBtn">Next →</button>
       </div>
@@ -198,7 +197,7 @@ function showStep() {
 
 function showSummary() {
   questionCard.innerHTML = `
-    <h1 class="title">Our Virtual Valentine’s Date 💘</h1>
+    <h1 class="title">Our Little Virtual Date 💘</h1>
     <p class="subtitle">
       📅 When: ${answers[0] || "We’ll figure it out 😉"}<br/>
       🍽 Dinner: ${answers[1] || "Chef’s surprise"}<br/>
@@ -206,7 +205,8 @@ function showSummary() {
       🎉 Activity: ${answers[3] || "Something fun"}
     </p>
     <p style="margin-top:20px;">
-      Can’t wait for our virtual date! Let’s make it extra special 💖
+      Not bad… I’d say that’s a pretty solid plan 😌  
+      Guess I’ll see you there?
     </p>
     <div class="profile-pics">
       <img src="assets/me.jpg" alt="You" />
@@ -311,3 +311,5 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+
+

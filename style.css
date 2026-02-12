@@ -332,7 +332,7 @@ body {
 /* Mobile refinement */
 @media (max-width: 480px) {
   #dateInput {
-    padding: 16px 14px;
+    padding: 12px 14px;
     border-radius: 12px;
   }
 }
@@ -363,8 +363,8 @@ body {
 /* Music button - top right */
 .music-btn {
   position: fixed;
-  top: max(16px, env(safe-area-inset-top));
-  right: max(16px, env(safe-area-inset-right));
+  top: max(30px, env(safe-area-inset-top));
+  right: max(30px, env(safe-area-inset-right));
   z-index: 10;
   display: inline-flex;
   align-items: center;
@@ -694,4 +694,5 @@ body {
     min-width: 100%;
   }
 }
+
 
