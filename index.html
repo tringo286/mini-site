@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Be My Valentine, Quynh?</title>
+    <meta
+      name="description"
+      content="A little Valentine question just for you, Quynh. Will you be my Valentine?"
+    />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Caveat:wght@400;500&family=Crimson+Text:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Add your song file as assets/cupid.mp3 (use only if you have the right to) -->
+    <audio id="bgMusic" loop>
+      <source src="assets/song.mp3" type="audio/mpeg" />
+    </audio>
+    <button
+      type="button"
+      class="music-btn"
+      id="musicBtn"
+      aria-label="Play background music"
+    >
+      <span class="music-btn-icon" aria-hidden="true">🎵</span>
+      <span class="music-btn-label">Play music</span>
+    </button>
+
+    <div class="hearts-bg" aria-hidden="true">
+      <span class="heart heart-1">♥</span>
+      <span class="heart heart-2">♥</span>
+      <span class="heart heart-3">♥</span>
+      <span class="heart heart-4">♥</span>
+      <span class="heart heart-5">♥</span>
+      <span class="flow-emoji flow-emoji-1">🧸</span>
+      <span class="flow-emoji flow-emoji-2">🎁</span>
+      <span class="flow-emoji flow-emoji-3">🧸</span>
+      <span class="flow-emoji flow-emoji-4">🎁</span>
+      <span class="flow-emoji flow-emoji-5">🧸</span>
+      <span class="flow-emoji flow-emoji-6">🎁</span>
+      <span class="flow-emoji flow-emoji-7">💝</span>
+      <span class="flow-emoji flow-emoji-8">🧸</span>
+      <span class="flow-emoji flow-emoji-9">🎁</span>
+      <span class="flow-emoji flow-emoji-10">💝</span>
+    </div>
+
+    <main class="page">
+      <section class="card letter-card" id="letterCard" role="button" tabindex="0" aria-label="Open letter" aria-hidden="false">
+        <div class="letter-content">
+          <span class="letter-icon" aria-hidden="true">💌</span>
+          <h2 class="letter-title">A letter for you</h2>
+          <p class="letter-hint">Click to open</p>
+        </div>
+      </section>
+
+      <section class="card card--question card--hidden" id="questionCard" aria-live="polite" aria-hidden="true">
+        <div class="plea-block" aria-hidden="true">
+          <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmVjbzF6YzNranp2NGJhbGk3eGViZW9vcmcweDNud2lrM3I5NHF5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XYEEvoX0Ub69ZgN9ai/giphy.gif" alt="Cat saying please" class="plea-cat" />
+          <p class="plea-text">please</p>
+        </div>
+
+        <h1 class="title">Quynh, can I take you on a virtual Valentine’s date? 💻💘</h1>
+        <p class="subtitle">
+          Since we’re miles apart, I thought I’d plan something a little different.
+          Let me “take you out” my way.
+        </p>
+
+        <div class="buttons">
+          <button id="yesButton" class="btn btn-yes" type="button">
+            Yes, of course!
+          </button>
+          <button id="noButton" class="btn btn-no" type="button">
+            No, sorry
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <template id="heart-pop-template">
+      <span class="pop-heart">♥</span>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

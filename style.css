@@ -1,0 +1,599 @@
+:root {
+  /* === Easy customization section === */
+  --bg-gradient: radial-gradient(circle at top, #ffe6f2 0, #ffafcc 35%, #b19cff 100%);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --text-color: #44213f;
+  --accent-color: #ff4f84;
+  --accent-color-soft: #ff8fb0;
+  --accent-yes: #ff4f84;
+  --accent-no: #ffffff;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  --border-radius-xl: 24px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh; /* better on mobile browsers */
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: var(--text-color);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent; /* cleaner tap on mobile */
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  overflow: hidden;
+}
+
+.card {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  padding: 32px 28px 28px;
+  border-radius: var(--border-radius-xl);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+/* Letter card - shown first */
+.letter-card {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.letter-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+.letter-card:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.letter-content {
+  padding: 20px 0;
+}
+
+.letter-icon {
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 12px;
+  animation: letter-wiggle 2s ease-in-out infinite;
+}
+
+.profile-pics {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.profile-pics img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+@keyframes letter-wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.letter-title {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.letter-hint {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Hide/show cards */
+.card--hidden {
+  display: none;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0 0 26px;
+  font-size: 0.98rem;
+  opacity: 0.85;
+}
+
+.plea-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.plea-cat {
+  display: block;
+  width: 140px;
+  height: auto;
+  animation: plea-wiggle 2s ease-in-out infinite;
+}
+
+.plea-text {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  letter-spacing: 0.02em;
+}
+
+@keyframes plea-wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.buttons {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.choice-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.choice-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.choice-card p {
+  padding: 10px;
+  font-weight: 600;
+}
+
+.choice-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btn {
+  position: relative;
+  border: none;
+  padding: 12px 22px;
+  min-height: 44px; /* touch-friendly tap target */
+  font-size: 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    left 220ms ease-out,
+    top 220ms ease-out,
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+  font-weight: 600;
+  outline: none;
+  touch-action: manipulation; /* reduces tap delay on mobile */
+}
+
+.btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, var(--accent-yes), var(--accent-color-soft));
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(255, 79, 132, 0.4);
+}
+
+.btn-yes:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 16px 34px rgba(255, 79, 132, 0.55);
+}
+
+.btn-yes:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 7px 16px rgba(255, 79, 132, 0.4);
+}
+
+.btn-no {
+  background: linear-gradient(135deg, var(--accent-yes), var(--accent-color-soft));
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(255, 79, 132, 0.4);
+}
+
+.btn-no:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 16px 34px rgba(255, 79, 132, 0.55);
+}
+
+.btn-no:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 7px 16px rgba(255, 79, 132, 0.4);
+}
+
+/* Music button - top right */
+.music-btn {
+  position: fixed;
+  top: max(50px, env(safe-area-inset-top));
+  right: max(50px, env(safe-area-inset-right));
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.music-btn.is-playing .music-btn-icon {
+  animation: music-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+  50% { transform: scale(1.15); }
+}
+
+.music-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 79, 132, 0.25);
+}
+
+.music-btn:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.music-btn-icon {
+  font-size: 1.2rem;
+}
+
+.music-btn-label {
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 480px) {
+  .music-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .music-btn-label {
+    display: none; /* icon only on small screens to save space */
+  }
+
+  .music-btn-icon {
+    font-size: 1.4rem;
+  }
+}
+
+/* Floating background hearts */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.5;
+  color: #ffffff;
+  animation: floatHeart 14s linear infinite;
+}
+
+.heart-1 {
+  left: 8%;
+  bottom: -10%;
+  animation-delay: 0s;
+}
+
+.heart-2 {
+  left: 22%;
+  bottom: -16%;
+  animation-delay: 3s;
+}
+
+.heart-3 {
+  left: 55%;
+  bottom: -12%;
+  animation-delay: 6s;
+}
+
+.heart-4 {
+  left: 75%;
+  bottom: -18%;
+  animation-delay: 9s;
+}
+
+.heart-5 {
+  left: 90%;
+  bottom: -14%;
+  animation-delay: 12s;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(-10px, -60vh, 0) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(10px, -110vh, 0) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Floating bears, gifts & other emojis */
+.flow-emoji {
+  position: absolute;
+  font-size: 32px;
+  opacity: 0.6;
+  animation: floatEmoji 16s linear infinite;
+}
+
+.flow-emoji-1 { left: 5%;  bottom: -8%;  animation-delay: 0s; }
+.flow-emoji-2 { left: 18%; bottom: -14%; animation-delay: 2s; }
+.flow-emoji-3 { left: 35%; bottom: -6%;  animation-delay: 4s; }
+.flow-emoji-4 { left: 48%; bottom: -12%; animation-delay: 6s; }
+.flow-emoji-5 { left: 62%; bottom: -10%; animation-delay: 8s; }
+.flow-emoji-6 { left: 78%; bottom: -16%; animation-delay: 10s; }
+.flow-emoji-7 { left: 92%; bottom: -8%;  animation-delay: 12s; }
+.flow-emoji-8 { left: 12%; bottom: -18%; animation-delay: 14s; }
+.flow-emoji-9 { left: 42%; bottom: -14%; animation-delay: 1s; }
+.flow-emoji-10 { left: 68%; bottom: -20%; animation-delay: 3s; }
+
+@keyframes floatEmoji {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.9) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(15px, -55vh, 0) scale(1.15) rotate(8deg);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(-12px, -120vh, 0) scale(0.85) rotate(-5deg);
+    opacity: 0;
+  }
+}
+
+/* Heart pop animation for Yes click */
+.pop-heart {
+  position: absolute;
+  color: #ff4f84;
+  font-size: 20px;
+  animation: heartPop 900ms ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes heartPop {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate3d(0, -40px, 0) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -55px, 0) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Success state */
+.success-pic {
+  margin: 0 auto 16px;
+  max-width: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.success-pic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.card--success .title {
+  font-size: 2rem;
+}
+
+.card--success .subtitle {
+  font-size: 1rem;
+}
+
+.card--success .buttons {
+  margin-top: 10px;
+}
+
+.card--success .btn-yes {
+  min-width: 180px;
+}
+
+/* Responsive: tablets and small laptops */
+@media (max-width: 640px) {
+  .page {
+    padding: 20px 16px;
+  }
+
+
+  .card {
+    padding: 28px 22px 26px;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .plea-cat {
+    width: 120px;
+  }
+}
+
+/* Responsive: phones */
+@media (max-width: 480px) {
+  .page {
+    padding: max(16px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
+
+
+  .card {
+    padding: 24px 18px 22px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 22px;
+  }
+
+  .plea-block {
+    margin-bottom: 16px;
+  }
+
+  .plea-cat {
+    width: 100px;
+  }
+
+  .plea-text {
+    font-size: 1.5rem;
+  }
+
+  .buttons {
+    gap: 12px;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .plea-cat {
+    width: 88px;
+  }
+}
+
+/* Success state on mobile */
+@media (max-width: 480px) {
+  .success-pic {
+    max-width: 160px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+  }
+
+  .card--success .title {
+    font-size: 1.6rem;
+  }
+
+  .card--success .btn-yes {
+    min-width: 100%;
+  }
+}
+
