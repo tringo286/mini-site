@@ -38,7 +38,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-tap-highlight-color: transparent; /* cleaner tap on mobile */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .page {
@@ -49,7 +49,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right))
+           max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   overflow: hidden;
 }
 
@@ -127,7 +128,6 @@ body {
   opacity: 0.7;
 }
 
-/* Hide/show cards */
 .card--hidden {
   display: none;
 }
@@ -218,8 +218,8 @@ body {
   position: relative;
   border: none;
   padding: 12px 22px;
-  min-height: 44px; /* touch-friendly tap target */
-  font-size: 0.95rem;
+  min-height: 48px; /* touch-friendly */
+  font-size: 1rem;
   border-radius: 999px;
   cursor: pointer;
   transition:
@@ -231,7 +231,7 @@ body {
     color 160ms ease;
   font-weight: 600;
   outline: none;
-  touch-action: manipulation; /* reduces tap delay on mobile */
+  touch-action: manipulation;
 }
 
 .btn:focus-visible {
@@ -271,24 +271,24 @@ body {
   box-shadow: 0 7px 16px rgba(255, 79, 132, 0.4);
 }
 
-/* Music button - top right */
+/* Music button - top right, bigger for mobile */
 .music-btn {
   position: fixed;
-  top: max(50px, env(safe-area-inset-top));
-  right: max(50px, env(safe-area-inset-right));
-  z-index: 10;
+  top: max(40px, env(safe-area-inset-top));
+  right: max(40px, env(safe-area-inset-right));
+  z-index: 15;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 10px;
+  padding: 12px 20px;
   background: rgba(255, 255, 255, 0.95);
   color: var(--text-color);
   font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 999px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   -webkit-tap-highlight-color: transparent;
@@ -299,12 +299,12 @@ body {
 }
 
 @keyframes music-pulse {
-  50% { transform: scale(1.15); }
+  50% { transform: scale(1.25); }
 }
 
 .music-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(255, 79, 132, 0.25);
+  box-shadow: 0 6px 20px rgba(255, 79, 132, 0.35);
 }
 
 .music-btn:focus-visible {
@@ -313,26 +313,25 @@ body {
 }
 
 .music-btn-icon {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .music-btn-label {
   letter-spacing: 0.02em;
+  font-weight: 600;
 }
 
 @media (max-width: 480px) {
   .music-btn {
-    padding: 8px 12px;
-    font-size: 0.85rem;
-    gap: 6px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    gap: 8px;
   }
-
   .music-btn-label {
-    display: none; /* icon only on small screens to save space */
+    display: inline; /* make sure small screens still see it */
   }
-
   .music-btn-icon {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
 }
 
