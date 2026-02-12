@@ -73,7 +73,7 @@ const dateFlow = [
     question: "There’s always room for dessert… 🍰",
     options: [
       { name: "Chocolate Cake", img: "https://images.unsplash.com/photo-1517427294546-5aa121f68e8a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hvY29sYXRlJTIwY2FrZXxlbnwwfHwwfHx8MA%3D%3D" },
-      { name: "Mochi Donut", img: "https://images.unsplash.com/photo-1714887195273-f9537814b749?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9jaGklMjBkb251dHxlbnwwfHwwfHx8MA%3D%3D" },
+      { name: "Mochi Donut", img: "./assets/donuts.png" },
       { name: "Ice Cream", img: "https://images.unsplash.com/photo-1629385697093-57be2cc97fa6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGljZSUyMGNyZWFtfGVufDB8fDB8fHww" },
       { name: "Chè", img: "https://coupleeatsfood.com/wp-content/uploads/2022/03/Che-Thai-Vietnamese-Dessert-Drink-6.jpg" },
       { name: "Bubble Tea", img: "https://images.unsplash.com/photo-1734770580735-796a00e42cb2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnViYmxlJTIwdGVhfGVufDB8fDB8fHww" }
@@ -83,10 +83,11 @@ const dateFlow = [
     type: "choice",
     question: "What should we do after? 🎡",
     options: [
-      { name: "Watch Anime", img: "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-      { name: "Get Lost in the Park", img: "https://images.unsplash.com/photo-1605540827677-693bad36b91f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-      { name: "Go Stargazing", img: "https://images.unsplash.com/photo-1557229678-7a6b79e7ad2c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U3RhcmdhemluZ3xlbnwwfHwwfHx8MA%3D%3D" },
-      { name: "Feed Squirrels", img: "https://images.unsplash.com/photo-1675902653508-4a5a40f968f1?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { name: "Watch Anime", img: "./assets/anime.jpg" },
+      { name: "DIY", img: "./assets/diy.png" },
+      { name: "Play MLBB", img: "./assets/MLBB.jpg" },
+      { name: "Feed Squirrels", img: "./assets/squirrel.png" },
+      { name: "Study Together", img: "./assets/study.jpeg" },
       { name: "Cook a New Recipe", img: "https://plus.unsplash.com/premium_photo-1661520870657-b55062321239?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNvb2tpbmd8ZW58MHx8MHx8fDA%3D" }
     ]
   }

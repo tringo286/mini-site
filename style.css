@@ -271,24 +271,69 @@ body {
   box-shadow: 0 7px 16px rgba(255, 79, 132, 0.4);
 }
 
-/* Music button - top right, bigger for mobile */
+/* Date input styling */
+#dateInput {
+  width: 100%;           /* fills container */
+  max-width: 100%;       /* prevents overflow */
+  box-sizing: border-box; /* include padding in width */
+  padding: 12px;         /* touch-friendly */
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  color: #44213f;
+  appearance: none;      /* removes native quirks on some phones */
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  #dateInput {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+/* Mobile adjustments for choice cards */
+@media (max-width: 480px) {
+  .choice-card {
+    height: auto; /* let it expand naturally */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .choice-card img {
+    height: 140px; /* taller image */
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .choice-card p {
+    padding: 6px 8px; /* less padding for text */
+    font-size: 0.85rem; /* smaller font */
+    line-height: 1.2; 
+    text-align: center;
+  }
+}
+
+/* Music button - top right */
 .music-btn {
   position: fixed;
-  top: max(40px, env(safe-area-inset-top));
-  right: max(40px, env(safe-area-inset-right));
-  z-index: 15;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  z-index: 10;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
+  gap: 8px;
+  padding: 10px 16px;
   background: rgba(255, 255, 255, 0.95);
   color: var(--text-color);
   font-family: inherit;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   -webkit-tap-highlight-color: transparent;
@@ -299,12 +344,12 @@ body {
 }
 
 @keyframes music-pulse {
-  50% { transform: scale(1.25); }
+  50% { transform: scale(1.15); }
 }
 
 .music-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(255, 79, 132, 0.35);
+  box-shadow: 0 6px 20px rgba(255, 79, 132, 0.25);
 }
 
 .music-btn:focus-visible {
@@ -313,25 +358,33 @@ body {
 }
 
 .music-btn-icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .music-btn-label {
   letter-spacing: 0.02em;
-  font-weight: 600;
 }
 
+/* Mobile: show only icon and smaller size */
 @media (max-width: 480px) {
   .music-btn {
-    padding: 12px 18px;
-    font-size: 1rem;
-    gap: 8px;
+    padding: 0;           /* no extra padding inside */
+    width: 44px;          /* square button for tap target */
+    height: 44px;
+    border-radius: 50%;   /* perfect circle */
+    gap: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers icon */
   }
+
   .music-btn-label {
-    display: inline; /* make sure small screens still see it */
+    display: none;        /* hide the label */
   }
+
   .music-btn-icon {
-    font-size: 1.7rem;
+    font-size: 1.6rem;    /* make icon slightly bigger for tap */
+    line-height: 1;       /* remove extra spacing */
   }
 }
 
@@ -520,9 +573,11 @@ body {
 /* Responsive: phones */
 @media (max-width: 480px) {
   .page {
-    padding: max(16px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+    padding: max(16px, env(safe-area-inset-top)) 
+             max(22px, env(safe-area-inset-right))  /* increased horizontal padding */
+             max(16px, env(safe-area-inset-bottom)) 
+             max(22px, env(safe-area-inset-left)); /* increased horizontal padding */
   }
-
 
   .card {
     padding: 24px 18px 22px;
@@ -530,7 +585,7 @@ body {
   }
 
   .title {
-    font-size: 1.45rem;
+    font-size: 1.2rem;
     line-height: 1.25;
   }
 
@@ -560,7 +615,7 @@ body {
     width: 100%;
     min-height: 48px;
     padding: 14px 20px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
