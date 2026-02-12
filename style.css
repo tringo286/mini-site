@@ -271,7 +271,7 @@ body {
   box-shadow: 0 7px 16px rgba(255, 79, 132, 0.4);
 }
 
-/* ===== Enhanced Date Picker ===== */
+/* ===== Clean Date Picker (No Icon) ===== */
 
 .date-wrapper {
   position: relative;
@@ -283,11 +283,11 @@ body {
   width: 100%;
   box-sizing: border-box;
 
-  /* Taller field */
-  padding: 18px 48px 18px 18px;
-
+  /* Desktop size */
+  padding: 18px 18px;
   font-size: 16px; /* prevents iOS zoom */
   font-family: inherit;
+
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
@@ -315,16 +315,18 @@ body {
   transition: opacity 0.2s ease;
 }
 
-/* Calendar icon */
-.date-wrapper::after {
-  content: "📅";
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  font-size: 1.2rem;
-  opacity: 0.7;
+/* ===== MOBILE FIX ===== */
+@media (max-width: 480px) {
+  #dateInput {
+    padding: 22px 18px;   /* Taller on phone */
+    font-size: 16px;      /* MUST stay 16px */
+    border-radius: 14px;
+  }
+
+  .date-placeholder {
+    font-size: 15px;
+    left: 18px;
+  }
 }
 
 /* Mobile refinement */

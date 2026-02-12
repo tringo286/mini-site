@@ -122,7 +122,6 @@ function showStep() {
 
       <div class="date-wrapper">
         <input type="date" id="dateInput" required />
-        <span class="date-placeholder">mm/dd/yyyy</span>
       </div>
 
       <div class="buttons">
