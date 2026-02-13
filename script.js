@@ -1,3 +1,32 @@
+// =========================
+// EMAILJS CONFIG
+// =========================
+
+// 🔥 REPLACE THESE WITH YOUR REAL IDS
+const SERVICE_ID = "service_rw1xg6h";
+const TEMPLATE_ID = "template_xuzqbiv";
+emailjs.init("1x5NKrkz3M7buU-3x");
+
+// =========================
+// SEND EMAIL
+// =========================
+
+function sendEmail() {
+  const templateParams = {
+    date: answers[0],
+    dinner: answers[1],
+    dessert: answers[2],
+    activity: answers[3]
+  };
+
+  emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+    .then(() => {
+      console.log("Email sent successfully 💘");
+    })
+    .catch((error) => {
+      console.error("Email failed:", error);
+    });
+}
 // Tiny Valentine site logic – Virtual Date Version
 
 const yesButton = document.getElementById("yesButton");
@@ -214,6 +243,7 @@ function showSummary() {
     </div>
   `;
 
+  sendEmail(); // 💌 THIS WILL SEND EMAIL NOW
   createHeartBurst(window.innerWidth / 2, window.innerHeight / 2);
 }
 
@@ -311,5 +341,4 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
-
 
